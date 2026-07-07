@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:5000/api/rates";
+const BASE_URL = "/api/rates";
 
 const dropdowns = document.querySelectorAll(".dropdown select");
 const form = document.querySelector("form");
