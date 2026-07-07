@@ -1,0 +1,12 @@
+{
+  "name": "currency-converter-workspace",
+  "version": "1.0.0",
+  "description": "Secure Currency Converter Workspace",
+  "scripts": {
+    "setup": "npm install --prefix backend",
+    "backend": "npm start --prefix backend",
+    "frontend": "npx -y serve frontend -l 3000",
+    "start": "npx -y concurrently --kill-others \"npm run backend\" \"npm run frontend\""
+  },
+  "private": true
+}
