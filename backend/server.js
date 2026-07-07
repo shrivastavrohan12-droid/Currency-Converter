@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
-
+const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -10,7 +10,12 @@ app.use(cors());
 
 // Parse JSON bodies
 app.use(express.json());
-
+// Serve static frontend files
+app.use(express.static(path.join(__dirname, '..', 'frontend')));
+// Fallback route for root
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'frontend', 'index.html'));
+});
 // Logger middleware
 app.use((req, res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
